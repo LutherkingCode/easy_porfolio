@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+{% block title %}Project Details{% endblock %}
+{% load static %}
+{% block main %}
+  <h1>Project Details</h1>
+  <div class="project-details">
+    <h2>{{ project.title }}</h2>
+    <h2>{{ project.category}}</h2>
+    <p><strong>Description:</strong> {{ project.description }}</p>
+    
+    
+
+    
+    {% if project.image %}
+      <img src="{{ project.image.url }}" alt="{{ project.title }}" width="300">
+    {% endif %}
+
+    <p><strong>Author:</strong> <a href="{% url 'user_details' project.user.id %}">{{ project.user.username }}</a></
+
+
+    
+  </div>
+  {% if user.is_authenticated %}
+    <p>
+      {% if user == project.user %}
+        <a href="{% url 'delete_project' project.id %}">Delete Project</a> <br> </br>
+        <a href="{% url 'create_project'  %}">Add a new project</a>
+      {% endif %}
+
+    
+    </p>
+  {% endif %}
+{% endblock %}
+
+<link rel="stylesheet" type="text/css" href="{% static 'styles.css' %}" />

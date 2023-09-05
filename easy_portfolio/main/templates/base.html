@@ -1,0 +1,40 @@
+{% load static %}
+
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{% block title %}blog{% endblock %}</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'style.css' %}" />
+    <link rel="stylesheet" type="text/css" href="{% static 'login.css' %}">
+
+  </head>
+  <body>
+    <header>
+      <a class="logo" href="{% url 'home' %}"> <span>eaZy</span>Porfolio</a>
+      <nav>
+        <ul>
+          <li><a href="{% url 'home' %}">Home</a></li>
+          <li><a href="#">About us</a></li>
+          <li>
+            {% if not user.is_authenticated %}
+            <a href="{% url 'create_account' %}">Create account</a>
+            <a href="{% url 'open_session' %}?next={{ request.path }}">Login</a>
+            {% else %}
+            <a href="{% url 'create_project' %}">Add project</a>
+            <a style="color: red" href="{% url 'close_session' %}">Logout</a>
+            {% endif %}
+          </li>
+        </ul>
+      </nav>
+    </header>
+    
+   
+
+    {% block main %} {% endblock %}
+
+    <footer>{% block footer %}eaZyPorfolio 2023 copyright {%endblock%}</footer>
+  </body>
+</html>

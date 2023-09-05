@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% block title %}User Details{% endblock %}
+
+{% block main %}
+<h1>User Details</h1>
+<p><strong>Username:</strong> {{ user.username }}</p>
+<p><strong>Email:</strong> {{ user.email }}</p>
+
+<h2>User's Projects</h2>
+<ul>
+  {% for project in projects %}
+  <li>
+    <strong>Title:</strong> {{ project.title }}<br>
+    <strong>Description:</strong> {{ project.description }}<br>
+    <a href="{% url 'project_detail' project.id %}">View Project Details</a>
+  </li>
+  {% empty %}
+  <li>No projects available for this user.</li>
+  {% endfor %}
+</ul>
+</div>
+{% endblock %}

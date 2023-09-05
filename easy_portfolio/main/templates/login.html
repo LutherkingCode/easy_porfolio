@@ -1,0 +1,20 @@
+{% extends 'base.html' %} 
+{% block main %}
+<div class="login-container">
+  <form action="{% url 'open_session' %}?next={{ request.GET.next }}" method="post" class="login-form">
+    {% csrf_token %}
+    <h1>Log In</h1>
+    {% if invalid_credentials %}
+    <p class="error-message">{{ invalid_credentials }}</p>
+    {% endif %}
+    <label for="id_username">Username:</label>
+    <input type="text" id="id_username" name="username" required>
+    <label for="id_password">Password:</label>
+    <input type="password" id="id_password" name="password" required>
+    <button type="submit">Connect</button>
+    <div class="register-link">
+      Don't have an account? <a href="{% url 'create_account'%}">Create account</a>
+    </div>
+  </form>
+</div>
+{% endblock %}
