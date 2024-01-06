@@ -76,5 +76,3 @@ Access the app at http://127.0.0.1:8000/.
 
 
 
-For demo :
-https://lutherking.pythonanywhere.com/
