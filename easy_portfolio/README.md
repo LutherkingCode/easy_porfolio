@@ -32,7 +32,7 @@ Follow these steps to get started with Easy Portfolio:
 2. Navigate to the project directory:
 
     ```bash
-    cd easy-portfolio
+    cd easy-porfolio
     ```
 
 3. Create and activate a virtual environment:
