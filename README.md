@@ -48,22 +48,6 @@ Follow these steps to get started with Easy Portfolio:
     pip install -r requirements.txt
     ```
 
-### Database Setup
-
-1. Apply migrations:
-
-    ```bash
-    python manage.py migrate
-    ```
-
-2. Create a superuser (for admin access):
-
-    ```bash
-    python manage.py createsuperuser
-    ```
-
-    Follow the prompts to set up your admin account.
-
 ### Run the Development Server
 
 Start the development server:
